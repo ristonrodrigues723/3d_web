@@ -1,0 +1,97 @@
+
+.banner {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('1318326.jpeg');
+    background-size: 100% 100%, 100% 100%;
+    background-position: 0% 100%, center;
+    }
+    
+    
+.slider {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    transform-style: preserve-3d;
+    animation: rotate 30s linear infinite;
+}
+
+@keyframes rotate {
+    0% {
+        transform: perspective(1000px) rotateY(0deg);
+    }
+    100% {
+        transform: perspective(1000px) rotateY(360deg);
+    }
+}
+
+.slider .item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform-origin: center;
+    transform-style: preserve-3d;
+    transform: rotateY(calc(var(--position) * (360deg / var(--quantity)))) translateZ(400px);
+}
+
+.slider .item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    transition: 0.5s;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.slider .item:hover img {
+    transform: translateY(-50px) scale(1.2);
+}
+
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.content h1 {
+    font-size: 6em;
+    color: #fff;
+    text-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.content h1::after {
+    content: attr(data-content);
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: transparent;
+    -webkit-text-stroke: 2px #fff;
+    z-index: -1;
+    filter: blur(15px);
+}
+
+.author {
+    margin-top: 20px;
+    color: #fff;
+}
+
+.author h2 {
+    font-size: 2em;
+}
+
+.author p {
+    font-size: 1.2em;
+}
+
